@@ -8,56 +8,14 @@ xmlns:h="http://java.sun.com/jsf/html">
 <title>Ejemplo de prueba con JSF2!</title>
 </head>
 <body>
-	<h1>Eventos de cambio de valor</h1>
-	<h2>Ligadura de Método</h2>
+	<h1>Seleccione la velocidad</h1>
 	
 	<h:form>
-		<h:selectOneMenu value="#{datosUsuario.paisSeleccionado}"
-		onchange="submit()"
-		valueChangeListener="#{datosUsuario.localCambiado}" >
-		<f:selectItems value="#{datosUsuario.countries}" />
-		</h:selectOneMenu>
-	</h:form>
-
-	#{datosUsuario.paisSeleccionado}
-	
-	<h2>Escuchador de eventos</h2>
-	<h:form>
-		<h:panelGrid columns="2">
-			Local seleccionado :
-			<h:selectOneMenu value="#{datosUsuario.paisSeleccionado}"
-			onchange="submit()">
-			<f:valueChangeListener
-			type="prueba.CambioLocalListener" />
-			<f:selectItems value="#{datosUsuario.countries}" />
-			</h:selectOneMenu>
-			Nombre de Pais:
-			<h:outputText id="Pais1" value="#{datosUsuario.paisSeleccionado}"
-			size="20" />
-		</h:panelGrid>
-	</h:form>
-	
-	<h1>Eventos de acción</h1>
-	<h2>Ligadura de método</h2>
-	<h:form>
+		<h:inputText value="#{cliente.velocidad}" />
 		<h:commandButton id="submitButton" 
-		   value="Submit" action="#{datosUsuario.mostrarResultado}"
-		   actionListener="#{datosUsuario.actualizarDatos}" >
+		   value="GO" action="#{cliente.gotoObjetivo}"
+		   actionListener="#{cliente.ejecutarFiltros}" >
 		</h:commandButton>
-	</h:form>
-	
-	<h2>Escuchar de eventos</h2>
-	<h:form>
-		<h:commandButton id="submitButton1" 
-		value="Enviar" action="#{datosUsuario.mostrarResultado}" >
-		   <f:actionListener type="prueba.AccionUsuarioListener" />
-		</h:commandButton>
-	</h:form>
-	
-	<h1>Eventos de aplicaciones</h1>
-	<h:form>
-		<f:event listener="#{datosUsuario.eventoManejado}" type="preRenderView" />
-      	#{datosUsuario.data}
 	</h:form>
 	
 </body>
