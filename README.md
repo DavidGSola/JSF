@@ -1,4 +1,4 @@
 JSF
 ===
 
-Practica 1 de la asignatura DSBCS
+Vehicle simulator using JSF.
