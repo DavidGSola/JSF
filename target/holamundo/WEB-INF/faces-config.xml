@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+version="2.0">
+	<navigation-rule>
+		<from-view-id>home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controladorNavegacion.procesarPagina1}</from-action>
+			<from-outcome>pagina</from-outcome>
+			<to-view-id>pagina1.jsf</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{controladorNavegacion.procesarPagina2}</from-action>
+			<from-outcome>pagina</from-outcome>
+			<to-view-id>pagina2.jsf</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<application>
+    	<!-- Arranque de la aplicacion -->
+    	<system-event-listener>
+        	<system-event-listener-class>
+            	prueba.SystemEventListenerCliente
+         	</system-event-listener-class>
+        	<system-event-class>
+            	javax.faces.event.PostConstructApplicationEvent
+         	</system-event-class>    
+      	</system-event-listener> 
+      	<!-- Antes de que la aplicación se cierre -->
+      	<system-event-listener>
+        	<system-event-listener-class>
+            	prueba.SystemEventListenerCliente
+         	</system-event-listener-class>
+         	<system-event-class>
+            	javax.faces.event.PreDestroyApplicationEvent
+         	</system-event-class>    
+      	</system-event-listener>
+   </application>
+</faces-config>
+ 
