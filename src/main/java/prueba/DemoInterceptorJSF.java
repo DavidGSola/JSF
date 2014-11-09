@@ -14,14 +14,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
+
+/**
+ * Clase con la interfaz básica para obtener una velocidad y lanzar 
+ * en un cliente una serie de filtros.
+ * @author DavidGSola
+ *
+ */
 public class DemoInterceptorJSF extends JFrame implements ActionListener
 {	
-	private JButton botonIniciar;
-	private JTextArea velocidad;
+	/**
+	 * Botón iniciar
+	 */
+	private JButton jbIniciar;
+	private JTextArea jtVelocidad;
 	
-	private JPanel panel;
+	private JPanel jpPanel;
 	
-	private Cliente cliente;
+	private Cliente mCliente;
 	
 	public static void main(String[] args) 
 	{
@@ -37,24 +47,27 @@ public class DemoInterceptorJSF extends JFrame implements ActionListener
 	{
 		if(e.getActionCommand() == "iniciar")
 		{
-			cliente.setVelocidad(velocidad.getText());
-			cliente.ejecutarFiltros();
+			if(!jtVelocidad.getText().isEmpty())
+			{
+				mCliente.setVelocidad(jtVelocidad.getText());
+				mCliente.ejecutarFiltros();
+			}
 		}
 	}
 	
 	public DemoInterceptorJSF()
 	{
-		this.setBounds(300,300,230,245);
+		this.setBounds(300,300,245,245);
 		
-		panel = new JPanel();
-		panel.setBounds(300, 300, 245, 245);
-		panel.setLayout(null);
+		jpPanel = new JPanel();
+		jpPanel.setBounds(300, 300, 245, 245);
+		jpPanel.setLayout(null);
 
-		velocidad = new JTextArea();
-		velocidad.setBounds(10, 57, 204, 65);
-		velocidad.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		velocidad.setMargin(new Insets(10, 10, 10, 10));
-		velocidad.addKeyListener(new KeyAdapter()
+		jtVelocidad = new JTextArea();
+		jtVelocidad.setBounds(10, 57, 204, 65);
+		jtVelocidad.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		jtVelocidad.setMargin(new Insets(10, 10, 10, 10));
+		jtVelocidad.addKeyListener(new KeyAdapter()
 		{
 			@Override
 			public void keyPressed(KeyEvent key)
@@ -62,32 +75,32 @@ public class DemoInterceptorJSF extends JFrame implements ActionListener
 				if(KeyEvent.VK_ENTER == key.getKeyCode())
 				{
 					key.consume();
-					botonIniciar.doClick();
+					jbIniciar.doClick();
 				}
 			}
 		});
-		panel.add(velocidad);
+		jpPanel.add(jtVelocidad);
 		
-		botonIniciar = new JButton("Conectar");
-		botonIniciar.setBounds(10, 133, 204, 65);
-		botonIniciar.setActionCommand("iniciar");
-		botonIniciar.setFont(new Font("Tahoma", Font.BOLD, 18));
-		botonIniciar.addActionListener(this);
-		panel.add(botonIniciar);
+		jbIniciar = new JButton("Lanzar");
+		jbIniciar.setBounds(10, 133, 204, 65);
+		jbIniciar.setActionCommand("iniciar");
+		jbIniciar.setFont(new Font("Tahoma", Font.BOLD, 18));
+		jbIniciar.addActionListener(this);
+		jpPanel.add(jbIniciar);
 		
 		JLabel jlVelocidad = new JLabel("Velocidad:");
 		jlVelocidad.setVerticalAlignment(SwingConstants.BOTTOM);
 		jlVelocidad.setFont(new Font("Tahoma", Font.ITALIC, 24));
 		jlVelocidad.setHorizontalAlignment(SwingConstants.LEFT);
 		jlVelocidad.setBounds(10, 11, 204, 35);
-		panel.add(jlVelocidad);
+		jpPanel.add(jlVelocidad);
 		
-		getContentPane().add(panel);
+		getContentPane().add(jpPanel);
 	}
 	
 	public void setCliente(Cliente cliente)
 	{
-		this.cliente = cliente;
+		this.mCliente = cliente;
 	}
 
 }

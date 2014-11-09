@@ -5,16 +5,22 @@
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html">
 <head>
-<title>Ejemplo de prueba con JSF2!</title>
+<title>Ejemplo de prueba con JSF!</title>
 </head>
 <body>
-	<h1>Seleccione la velocidad</h1>
+	<h2 style="margin: 100px; color:#6E6E6E; font:20px Verdana; font-weight: bold;">#{interfaz.estadoMotor}</h2>
 	
 	<h:form>
-		<h:inputText value="#{cliente.velocidad}" />
-		<h:commandButton id="submitButton" 
-		   value="GO" action="#{cliente.gotoObjetivo}"
-		   actionListener="#{cliente.ejecutarFiltros}" >
+		<h:commandButton id="buttonOnOff" 
+		   value="#{interfaz.textBotonOnOff}"
+		   style="#{interfaz.styleActual}"
+		   actionListener="#{interfaz.cambiarEstadoMotor}" >
+		</h:commandButton>
+		
+		<h:commandButton id="buttonAcelerar" 
+		   value="Acelerar"
+		   style="#{interfaz.styleFijo}"
+		   actionListener="#{interfaz.acelerarMotor}" >
 		</h:commandButton>
 	</h:form>
 	

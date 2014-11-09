@@ -20,7 +20,7 @@ public class Cliente
 	 */
 	public Cliente()
 	{
-		mGestor = new GestorFiltros("http://localhost:8080/holamundo/boom.jsf");
+		mGestor = new GestorFiltros("http://localhost:8080/holamundo/home.jsf");
 		mGestor.addFiltro(new Calcular());
 		mGestor.addFiltro(new CalcularVelocidad());
 	}
