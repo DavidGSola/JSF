@@ -24,15 +24,34 @@ import javax.swing.SwingConstants;
 public class DemoInterceptorJSF extends JFrame implements ActionListener
 {	
 	/**
+	 * Serial Version
+	 */
+	private static final long serialVersionUID = 6163379083385241909L;
+	
+	/**
 	 * Botón iniciar
 	 */
 	private JButton jbIniciar;
+	
+	/**
+	 * Area de texto donde se introduce la velocidad
+	 */
 	private JTextArea jtVelocidad;
 	
+	/**
+	 * Panel asociado al Frame
+	 */
 	private JPanel jpPanel;
 	
+	/**
+	 * Cliente asociado al Frame
+	 */
 	private Cliente mCliente;
 	
+	/**
+	 * Main donde se crea un {@link DemoInterceptorJSF} y se le asocia un {@link Cliente}
+	 * @param args
+	 */
 	public static void main(String[] args) 
 	{
 		Cliente cliente = new Cliente();
@@ -55,6 +74,9 @@ public class DemoInterceptorJSF extends JFrame implements ActionListener
 		}
 	}
 	
+	/**
+	 * Constructor por defecto del Frame {@link DemoInterceptorJSF}
+	 */
 	public DemoInterceptorJSF()
 	{
 		this.setBounds(300,300,245,245);
@@ -98,6 +120,10 @@ public class DemoInterceptorJSF extends JFrame implements ActionListener
 		getContentPane().add(jpPanel);
 	}
 	
+	/**
+	 * Asocia un {@link Cliente} al {@link DemoInterceptorJSF}
+	 * @param cliente
+	 */
 	public void setCliente(Cliente cliente)
 	{
 		this.mCliente = cliente;

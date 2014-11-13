@@ -1,0 +1,32 @@
+h2
+{
+	margin: 100px;
+	color: #6e6e6e;
+	font: 20px Verdana;
+	font-weight: bold;
+}
+
+.botonTemplate
+{
+	height:65px;
+	width:130px;
+	color:#FFFFFF;
+	background-color:#A4A4A4;
+	font:15px Verdana;
+	font-weight: bold;
+	text-align:center;
+	margin:15px;
+	border:2px solid #6e6e6e;
+}
+
+.botonEncender
+{
+	background-color:#f24537;
+	border:2px solid #d02718;
+}
+
+.botonApagar
+{
+	background-color:#9dce2c;
+	border:2px solid #83c41a;
+}

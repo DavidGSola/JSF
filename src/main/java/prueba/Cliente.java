@@ -1,9 +1,5 @@
 package prueba;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
-
 public class Cliente 
 {	
 	/**
@@ -20,9 +16,10 @@ public class Cliente
 	 */
 	public Cliente()
 	{
-		mGestor = new GestorFiltros("http://localhost:8080/holamundo/home.jsf");
+		mGestor = new GestorFiltros();
 		mGestor.addFiltro(new Calcular());
 		mGestor.addFiltro(new CalcularVelocidad());
+		mGestor.addFiltro(new Objetivo("http://localhost:8080/holamundo/home.jsf"));
 	}
 
 	public void setVelocidad(String velocidad)
@@ -37,31 +34,10 @@ public class Cliente
 
 	/**
 	 * Ejecuta los filtros a través del gestor del filtros.
-	 * Se lanza a través de un botón
 	 */
 	public void ejecutarFiltros()
 	{
 		double resultado = mGestor.ejecutar(Double.valueOf(velocidad));
 		velocidad = String.valueOf(resultado);
-		
-		try 
-		{
-			java.awt.Desktop.getDesktop().browse(new java.net.URI(mGestor.getObjetivo()));
-		} catch (IOException e) 
-		{
-			e.printStackTrace();
-		} catch (URISyntaxException e) 
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * Cambia la pantalla a la pantalla objetivo que tiene el gestor de filtros
-	 * @return nombre de la pantalla .xhtml
-	 */
-	public String gotoObjetivo()
-	{
-		return mGestor.getObjetivo();
 	}
 }

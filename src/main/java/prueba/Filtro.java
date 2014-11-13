@@ -9,8 +9,8 @@ public interface Filtro
 {
 	/**
 	 * Método de ejecución del filtro
-	 * @param velocidad
-	 * @return
+	 * @param peticion 
+	 * @return valor trás ejecutar el filtro sobre peticinon
 	 */
-	public double ejecutar(double velocidad);
+	public double ejecutar(double peticion);
 }

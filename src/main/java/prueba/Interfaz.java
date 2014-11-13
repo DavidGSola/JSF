@@ -13,58 +13,32 @@ public class Interfaz
 	/**
 	 * Estado actual del motor
 	 */
+	@SuppressWarnings("unused")
 	private String estadoMotor;
 		
 	/**
 	 * Motor
 	 */
-	private Motor mMotor;
+	private static Motor mMotor = new Motor();
 	
-	/**
-	 * Style común para todos los botones
-	 */
-	private String styleFijo;
+	static
+	{
+		mMotor.iniciar();
+	}
 	
 	/**
 	 * Style para el botón de encender/apagar el motor
 	 */
-	private String styleActual;
+	private String claseBotonCSS = "botonEncender";
 	
 	/**
 	 * Texto para el botón de enender/apagar el motor
 	 */
-	private String textBotonOnOff;
-	
-	/**
-	 * Constructor del Cliente
-	 */
-	public Interfaz()
-	{	mMotor = new Motor();
-		mMotor.iniciar();
-		styleFijo  = "color:#FFFFFF;"
-				   + "background-color:#A4A4A4;"
-				   + "height:65px;"
-				   + "width:130px;"
-				   + "font:15px Verdana;"
-				   + "font-weight: bold;"
-				   + "text-align:center;"
-				   + "margin:15px;";
-		
-		 styleActual = styleFijo 
-				 	 + "border: 1px solid #d02718;" 
-				     + "background-color:#f24537;";
-		 
-		 textBotonOnOff = "Encender";
-	}
-	
-	public String getStyleActual()
+	private String textBotonOnOff = "Encender";
+
+	public String getClaseBotonCSS()
 	{
-		return styleActual;
-	}
-	
-	public String getStyleFijo()
-	{
-		return styleFijo;
+		return claseBotonCSS;
 	}
 	
 	public String getTextBotonOnOff()
@@ -104,18 +78,12 @@ public class Interfaz
 			case ENCENDIDO:
 			case ACELERANDO:
 				mMotor.apagar();
-				styleActual = styleFijo 
-							+ "border: 1px solid #d02718;"
-							+ "color:#FFFFFF;"
-						    + "background-color:#f24537;";
+				claseBotonCSS = "botonEncender";
 				textBotonOnOff = "Encender";
 				break;
 			case APAGADO:
 				mMotor.encender();
-				styleActual = styleFijo
-							+ "border: 1px solid #83c41a;"
-							+ "color:#FFFFFF;"
-					    	+ "background-color:#9dce2c;";
+				claseBotonCSS = "botonApagar";
 				textBotonOnOff = "Apagar";
 				break;
 		}

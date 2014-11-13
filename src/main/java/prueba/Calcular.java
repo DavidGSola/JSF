@@ -8,9 +8,10 @@ package prueba;
 public class Calcular implements Filtro
 {
 
-	public double ejecutar(double velocidad) 
+	public double ejecutar(double peticion) 
 	{
-		return velocidad*10;
+		System.out.println("Ejecutando filtro Calcular");
+		return peticion*10;
 	}
 
 }

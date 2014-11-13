@@ -6,13 +6,7 @@ package prueba;
  *
  */
 public class GestorFiltros 
-{
-	/**
-	 * Objetivo, en este caso la página a la que se pasará
-	 * trás la ejecución de todos los filtros
-	 */
-	private String mObjetivo; 
-	
+{	
 	/**
 	 * Cadena de filtros
 	 */
@@ -22,9 +16,8 @@ public class GestorFiltros
 	 * Constructor de del Gestor de Filtros
 	 * @param objetivo
 	 */
-	public GestorFiltros(String objetivo)
+	public GestorFiltros()
 	{
-		mObjetivo = objetivo;
 		mCadena = new CadenaFiltro();
 	}
 	
@@ -54,10 +47,5 @@ public class GestorFiltros
 	public void deleteFiltro(Filtro filtro)
 	{
 		mCadena.delete(filtro);
-	}
-
-	public String getObjetivo()
-	{
-		return mObjetivo;
 	}
 }
